@@ -1,18 +1,23 @@
 
+<input type="text" placeholder="search by name" class="form-control"  [(ngModel)]="searchName">
 <div  class="row">
 <div class="col-md-3" *ngFor="let p of products  ; let i = index">
+  <ng-container *ngIf="p.name == searchName || !searchName ">
   <div class="card" style="width: 18rem;">
   <img class="card-img-top" [src]="p.image" alt="{{p.name}}">
   <div class="card-body">
     <h5 class="card-title">Title :  {{p.name}}</h5>
     <p class="card-text">Description :  {{p.description}}</p>
-    <p class="card-text">Price :  {{p.price}}</p>
+    <p class="card-text">Price :  {{p.price | currency:'EUR'}}</p>
     <p class="card-text">Quantity :  {{p.quantity}}</p>
     <p class="card-text">Like :  {{p.nbrLike}}</p>
-    <button  (click)="buy(p.id)" class="btn btn-primary">Buy</button>
+    <button [disabled]="p.quantity==0" (click)="buy(p.id)" class="btn btn-primary">Buy</button>
   </div>
-</div>
+  </div>
+</ng-container>
 </div>
 </div>
 
+<input type="text" placeholder="choose color" [(ngModel)]="color">
+<p [style.backgroundColor]="color"> test</p>
 
