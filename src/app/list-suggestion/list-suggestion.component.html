@@ -1,0 +1,33 @@
+<h2 class="title">Liste des Suggestions</h2>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let g of suggestions">
+        <td>{{ g.title }}</td>
+        <td>{{ g.description }}</td>
+        <td>{{ g.category }}</td>
+        <td>{{ g.date | date : 'shortDate' }}</td>
+        <td>
+          <span [ngClass]="{
+            'status-open':   g.status === 'Open',
+            'status-done':   g.status === 'Done',
+            'status-pending':g.status === 'Pending'
+          }">
+            {{ g.status }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -12,6 +12,7 @@
     <p class="card-text">Quantity :  {{p.quantity}}</p>
     <p class="card-text">Like :  {{p.nbrLike}}</p>
     <button [disabled]="p.quantity==0" (click)="buy(p.id)" class="btn btn-primary">Buy</button>
+    <button class="btn btn-secondary"  [routerLink]="['/detail', p.id]">Detail</button>
   </div>
   </div>
 </ng-container>

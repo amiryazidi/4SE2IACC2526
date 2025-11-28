@@ -8,13 +8,19 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { ListSuggestionComponent } from './list-suggestion/list-suggestion.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { DetailProdComponent } from './detail-prod/detail-prod.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ListSuggestionComponent,
+    NotFoundComponent,
+    DetailProdComponent
   ],
   imports: [
     BrowserModule,
