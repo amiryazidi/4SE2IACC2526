@@ -9,6 +9,7 @@
         <th>Category</th>
         <th>Date</th>
         <th>Status</th>
+        <th>actions</th>
       </tr>
     </thead>
 
@@ -17,16 +18,16 @@
         <td>{{ g.title }}</td>
         <td>{{ g.description }}</td>
         <td>{{ g.category }}</td>
-        <td>{{ g.date | date : 'shortDate' }}</td>
+        <td>{{ g.date }}</td>
         <td>
-          <span [ngClass]="{
-            'status-open':   g.status === 'Open',
-            'status-done':   g.status === 'Done',
-            'status-pending':g.status === 'Pending'
-          }">
+          <span
+            [class.status-open]="g.status === 'Open'"
+            [class.status-done]="g.status === 'Done'"
+            [class.status-pending]="g.status === 'Pending'">
             {{ g.status }}
           </span>
         </td>
+        <td> <button  [routerLink]="['./detail',g.id]">Details</button></td>
       </tr>
     </tbody>
   </table>
