@@ -1,8 +1,41 @@
-<p>detail-prod works!</p>
+<div class="container mt-4" *ngIf="product">
+  <div class="row">
 
+    <!-- IMAGE -->
+    <div class="col-md-5">
+      <div class="card shadow-sm">
+        <img [src]="product.image" class="img-fluid rounded" alt="{{ product.name }}">
+      </div>
+    </div>
 
-{{id}}
+    <!-- INFO -->
+    <div class="col-md-7">
+      <h2 class="mb-3">{{ product.name }}</h2>
+      <p class="text-muted">{{ product.description }}</p>
 
-{{product.name}}
-{{product.description}}
-{{product.price | currency:'EUR'}}
+      <h3 class="text-primary">
+        {{ product.price | currency : 'EUR' }}
+      </h3>
+
+      <p>
+        <strong>Quantité :</strong>
+        <span [ngClass]="{'text-danger': product.quantity == 0}">
+          {{ product.quantity }}
+        </span>
+      </p>
+
+      <p>
+        <strong>Likes :</strong> ❤️ {{ product.nbrLike }}
+      </p>
+
+      <button class="btn btn-outline-primary btn-lg" routerLink="/product">
+        Retour
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- En cas de produit introuvable -->
+<div *ngIf="!product" class="text-center mt-5 text-danger">
+  <h3>Produit introuvable ⚠️</h3>
+</div>

@@ -1,0 +1,33 @@
+
+<form [formGroup]="formProduct">
+
+<label>name</label>
+<input type="text" class="form-control" placeholder="enter name" formControlName="name">
+
+<div *ngIf="formProduct.controls['name'].invalid && formProduct.controls['name'].touched" class="alert alert-danger">
+  <p> name required</p>
+</div>
+
+<label>Description</label>
+<input type="text" class="form-control" placeholder="enter description" formControlName="desc">
+
+<div *ngIf="formProduct.controls['desc'].invalid && formProduct.controls['desc'].touched" class="alert alert-danger">
+    <p *ngIf="formProduct.controls['desc'].hasError('minlength')"> Description minlength 10 caracteres </p>
+
+  <p *ngIf="formProduct.controls['desc'].hasError('required')"> Description required</p>
+</div>
+
+<label>price</label>
+<input type="text" class="form-control" placeholder="enter price" formControlName="price">
+
+
+<label>Like</label>
+<input type="text" class="form-control" placeholder="enter like" formControlName="like">
+
+<label>Quantity</label>
+<input type="text" class="form-control" placeholder="enter quantity" formControlName="quantity">
+<input type="submit" class="btn btn-primary mt-3" value="save"
+[disabled]="formProduct.invalid" (click)="save()">
+
+
+</form>

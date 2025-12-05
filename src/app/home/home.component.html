@@ -1,4 +1,6 @@
 
+
+<a routerLink="/addP"> Add product</a>
 <input type="text" placeholder="search by name" class="form-control"  [(ngModel)]="searchName">
 <div  class="row">
 <div class="col-md-3" *ngFor="let p of products  ; let i = index">
@@ -18,7 +20,3 @@
 </ng-container>
 </div>
 </div>
-
-<input type="text" placeholder="choose color" [(ngModel)]="color">
-<p [style.backgroundColor]="color"> test</p>
-
